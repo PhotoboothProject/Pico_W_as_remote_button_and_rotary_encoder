@@ -28,7 +28,14 @@ download_library() {
   fi
 
   # Unzip and forcefully move the `.mpy` file to the lib directory
-  unzip -oq -j "$asset_file" "**/${mpy_file_name}" -d "Photobooth_Pi_Pico_W_HTTP_client/lib"
+  if [[ "$repo_name" == "Adafruit_CircuitPython_HID" ]]; then
+    # Extract only the .mpy files for the HID library
+    unzip -oq "$asset_file" "*.mpy" -d "Photobooth_Pi_Pico_W_HTTP_client/lib/adafruit_hid"
+  else
+    # Extract only the specified .mpy file for other libraries
+    unzip -oq -j "$asset_file" "**/${mpy_file_name}" -d "Photobooth_Pi_Pico_W_HTTP_client/lib"
+  fi
+
   if [ $? -ne 0 ]; then
     echo "Error: Failed to extract $mpy_file_name. Exiting."
     exit 1
@@ -68,6 +75,7 @@ download_library "Adafruit_CircuitPython_ConnectionManager" "adafruit-circuitpyt
 download_library "Adafruit_CircuitPython_Debouncer" "adafruit-circuitpython-debouncer" "adafruit_debouncer.mpy"
 download_library "Adafruit_CircuitPython_Requests" "adafruit-circuitpython-requests" "adafruit_requests.mpy"
 download_library "Adafruit_CircuitPython_Ticks" "adafruit-circuitpython-ticks" "adafruit_ticks.mpy"
+download_library "Adafruit_CircuitPython_HID" "adafruit-circuitpython-hid" ""
 
 # Prompt for Wi-Fi credentials and create `settings.toml`
 echo "Please enter the Wi-Fi credentials to connect your Raspberry Pi Pico with your local network."
