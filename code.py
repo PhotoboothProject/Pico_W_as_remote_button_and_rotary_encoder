@@ -17,8 +17,8 @@ from adafruit_debouncer import Button
 
 
 # Define your Photobooth IP and Hardware Button Server Port
-photobooth_ip = "[Photobooth IP]"
-button_server_port = "[Hardware Button Server Port]"    ## Default port is 14711
+photobooth_ip = "Your_Server_IP"
+button_server_port = "Your_Server_Port"    ## Default port is 14711
 
 btn1_pin = DigitalInOut(board.GP10)             ### Connect to GND
 btn1_pin.direction = Direction.INPUT
