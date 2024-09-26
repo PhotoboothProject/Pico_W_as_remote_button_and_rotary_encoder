@@ -54,7 +54,7 @@ There is also LED support for arcarde push buttons, meaning if you use a combine
 
 | Button Number | GP Number | LED GP Number | Short Press Action        | Long Press Action         |
 |---------------|-----------|---------------|---------------------------|---------------------------|
-| 1             | GP10      | GP11          | Trigger Picture           | Trigger Picture           |
+| 1             | GP10      | GP11          | Trigger Picture           | Trigger Collage           |
 | 2             | GP12      | GP13          | Trigger Print             | Trigger Print             |
 | 3             | GP14      | GP15          | Trigger Video Capture     | Trigger Video Capture     |
 | 4             | GP16      | GP17          | Trigger Custom Capture    | Trigger Custom Capture    |
