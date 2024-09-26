@@ -72,7 +72,7 @@ download_library "Adafruit_CircuitPython_Ticks" "adafruit-circuitpython-ticks" "
 # Prompt for Wi-Fi credentials and create `settings.toml`
 echo "Please enter the Wi-Fi credentials to connect your Raspberry Pi Pico with your local network."
 read -p "Enter Wi-Fi SSID: " wifi_ssid
-read -sp "Enter Wi-Fi Password: " wifi_password
+read -p "Enter Wi-Fi Password: " wifi_password
 echo ""
 
 # Check for empty Wi-Fi credentials
