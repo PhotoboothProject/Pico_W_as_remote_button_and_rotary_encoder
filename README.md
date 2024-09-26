@@ -36,7 +36,7 @@ Photobooth_Pi_Pico_W_HTTP_client/
 
 3. Have fun!
 
-## Expected behaviour 
+## Button actions & LED
 
 Up to 5 buttons can be used which trigger up to 6 different web requests for:
 - start-picture
@@ -49,6 +49,18 @@ Up to 5 buttons can be used which trigger up to 6 different web requests for:
 as descirbed in the [Photobooth documentation](https://photoboothproject.github.io/FAQ#can-i-use-hardware-button-to-take-a-picture).
 
 There is also LED support for arcarde push buttons, meaning if you use a combined LED button, triggering the button will also light up the LED.
+
+### Wiring layout
+
+| Button Number | GP Number | LED GP Number | Short Press Action        | Long Press Action         |
+|---------------|-----------|---------------|---------------------------|---------------------------|
+| 1             | GP10      | GP11          | Trigger Picture           | Trigger Picture           |
+| 2             | GP12      | GP13          | Trigger Print             | Trigger Print             |
+| 3             | GP14      | GP15          | Trigger Video Capture     | Trigger Video Capture     |
+| 4             | GP16      | GP17          | Trigger Custom Capture    | Trigger Custom Capture    |
+| 5             | GP18      | GP19          | Trigger Shutdown          | Trigger Shutdown          |
+
+## Rotary encoder
 
 A rotary encoder is implemented: It triggers web requests for cw (clockwise) and ccw (counter-clockwise). Pressing the encoder´s push button will trigger a web request for rotary-btn-press. 
 
