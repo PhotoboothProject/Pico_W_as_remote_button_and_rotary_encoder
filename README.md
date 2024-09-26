@@ -21,14 +21,16 @@ bash download-files.sh
 After running the script, the directory will be structured like this:
 
 ```
-Photobooth_Pi_Pico_W_HTTP_client/
-├── code.py
+Photobooth_Pi_Pico_Buzzer/
+├── library_info.txt
 ├── lib/
+│   ├── adafruit_hid/
+│   │   ├── .mpy files from the HID library
 │   ├── adafruit_connection_manager.mpy
 │   ├── adafruit_debouncer.mpy
 │   ├── adafruit_requests.mpy
 │   └── adafruit_ticks.mpy
-├── library_info.txt
+├── code.py
 └── settings.toml
 ```
 
