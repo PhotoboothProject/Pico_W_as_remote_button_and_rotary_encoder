@@ -64,4 +64,10 @@ There is also LED support for arcarde push buttons, meaning if you use a combine
 
 A rotary encoder is implemented: It triggers web requests for cw (clockwise) and ccw (counter-clockwise). Pressing the encoder´s push button will trigger a web request for rotary-btn-press. 
 
-Button 1 (btn1 on GPIO 10) will do two different actions depending on short or long press: A short press will trigger the web request for taking a picture, a long press will trigger the web request for taking a collage. 
+### Wiring layout
+
+| GP Number | Encoder Connection | Description                             |
+|-----------|--------------------|-----------------------------------------|
+| GP2       | BTN                | Trigger Click (Short Press & Long Press) |
+| GP3       | CLK                | CW Action                               |
+| GP4       | DT                 | CCW Action                              |
