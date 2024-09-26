@@ -36,7 +36,7 @@ Photobooth_Pi_Pico_W_HTTP_client/
 
 3. Have fun!
 
-## Expected behaviour 
+## Button actions & LED
 
 Up to 5 buttons can be used which trigger up to 6 different web requests for:
 - start-picture
@@ -50,6 +50,24 @@ as descirbed in the [Photobooth documentation](https://photoboothproject.github.
 
 There is also LED support for arcarde push buttons, meaning if you use a combined LED button, triggering the button will also light up the LED.
 
+### Wiring layout
+
+| Button Number | GP Number | LED GP Number | Short Press Action        | Long Press Action         |
+|---------------|-----------|---------------|---------------------------|---------------------------|
+| 1             | GP10      | GP11          | Trigger Picture           | Trigger Collage           |
+| 2             | GP12      | GP13          | Trigger Print             | Trigger Print             |
+| 3             | GP14      | GP15          | Trigger Video Capture     | Trigger Video Capture     |
+| 4             | GP16      | GP17          | Trigger Custom Capture    | Trigger Custom Capture    |
+| 5             | GP18      | GP19          | Trigger Shutdown          | Trigger Shutdown          |
+
+## Rotary encoder
+
 A rotary encoder is implemented: It triggers web requests for cw (clockwise) and ccw (counter-clockwise). Pressing the encoder´s push button will trigger a web request for rotary-btn-press. 
 
-Button 1 (btn1 on GPIO 10) will do two different actions depending on short or long press: A short press will trigger the web request for taking a picture, a long press will trigger the web request for taking a collage. 
+### Wiring layout
+
+| GP Number | Encoder Connection | Description                             |
+|-----------|--------------------|-----------------------------------------|
+| GP2       | BTN                | Trigger Click (Short Press & Long Press) |
+| GP3       | CLK                | CW Action                               |
+| GP4       | DT                 | CCW Action                              |
