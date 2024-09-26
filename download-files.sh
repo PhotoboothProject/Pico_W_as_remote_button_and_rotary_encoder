@@ -64,7 +64,7 @@ else
 fi
 
 # Create the target directory and the `lib` sub-directory, forcefully if needed
-mkdir -p Photobooth_Pi_Pico_W_HTTP_client/lib
+mkdir -p Photobooth_Pi_Pico_Buzzer/lib
 
 # Create or overwrite the library_info.txt file
 echo "Library Information - Downloaded Libraries and Versions" > Photobooth_Pi_Pico_Buzzer/library_info.txt
