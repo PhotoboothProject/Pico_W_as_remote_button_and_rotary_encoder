@@ -30,10 +30,10 @@ download_library() {
   # Unzip and forcefully move the `.mpy` file to the lib directory
   if [[ "$repo_name" == "Adafruit_CircuitPython_HID" ]]; then
     # Extract only the .mpy files for the HID library
-    unzip -oq "$asset_file" "*.mpy" -d "Photobooth_Pi_Pico_W_HTTP_client/lib/adafruit_hid"
+    unzip -oq "$asset_file" "*.mpy" -d "Photobooth_Pi_Pico_Buzzer/lib/adafruit_hid"
   else
     # Extract only the specified .mpy file for other libraries
-    unzip -oq -j "$asset_file" "**/${mpy_file_name}" -d "Photobooth_Pi_Pico_W_HTTP_client/lib"
+    unzip -oq -j "$asset_file" "**/${mpy_file_name}" -d "Photobooth_Pi_Pico_Buzzer/lib"
   fi
 
   if [ $? -ne 0 ]; then
@@ -44,7 +44,7 @@ download_library() {
   rm -f "$asset_file"
 
   # Append the library name and version to library_info.txt
-  echo "$mpy_file_name: $latest_version" >> Photobooth_Pi_Pico_W_HTTP_client/library_info.txt
+  echo "$mpy_file_name: $latest_version" >> Photobooth_Pi_Pico_Buzzer/library_info.txt
 }
 
 # Prompt the user to select CircuitPython version
@@ -67,8 +67,8 @@ fi
 mkdir -p Photobooth_Pi_Pico_W_HTTP_client/lib
 
 # Create or overwrite the library_info.txt file
-echo "Library Information - Downloaded Libraries and Versions" > Photobooth_Pi_Pico_W_HTTP_client/library_info.txt
-echo "------------------------------------------------------" >> Photobooth_Pi_Pico_W_HTTP_client/library_info.txt
+echo "Library Information - Downloaded Libraries and Versions" > Photobooth_Pi_Pico_Buzzer/library_info.txt
+echo "------------------------------------------------------" >> Photobooth_Pi_Pico_Buzzer/library_info.txt
 
 # Download necessary libraries quietly and place them in the `lib` folder, replacing if they exist
 download_library "Adafruit_CircuitPython_ConnectionManager" "adafruit-circuitpython-connectionmanager" "adafruit_connection_manager.mpy"
@@ -90,12 +90,12 @@ if [[ -z "$wifi_ssid" || -z "$wifi_password" ]]; then
 fi
 
 # Create `settings.toml` with Wi-Fi details, overwriting if it exists
-cat <<EOL > Photobooth_Pi_Pico_W_HTTP_client/settings.toml
+cat <<EOL > Photobooth_Pi_Pico_Buzzer/settings.toml
 CIRCUITPY_WIFI_SSID = "$wifi_ssid"
 CIRCUITPY_WIFI_PASSWORD = "$wifi_password"
 EOL
 
-echo "Created/Updated Photobooth_Pi_Pico_W_HTTP_client/settings.toml."
+echo "Created/Updated Photobooth_Pi_Pico_Buzzer/settings.toml."
 
 # Prompt for server IP and port
 read -p "Enter the Remotebuzzer server IP (e.g., 192.168.1.100): " server_ip
@@ -109,12 +109,12 @@ fi
 
 # Download `code.py` and replace if it exists
 code_url="https://raw.githubusercontent.com/PhotoboothProject/Pico_W_as_remote_button_and_rotary_encoder/refs/heads/main/code.py"
-curl -s -L -o Photobooth_Pi_Pico_W_HTTP_client/code.py "$code_url"
+curl -s -L -o Photobooth_Pi_Pico_Buzzer/code.py "$code_url"
 
 # Replace placeholders in `code.py` with entered Remotebuzzer Server IP and Port
-sed -i "s/Your_Server_IP/$server_ip/g" Photobooth_Pi_Pico_W_HTTP_client/code.py
-sed -i "s/Your_Server_Port/$server_port/g" Photobooth_Pi_Pico_W_HTTP_client/code.py
+sed -i "s/Your_Server_IP/$server_ip/g" Photobooth_Pi_Pico_Buzzer/code.py
+sed -i "s/Your_Server_Port/$server_port/g" Photobooth_Pi_Pico_Buzzer/code.py
 
 echo "Modified code.py with server IP and port."
 echo "################"
-echo "Setup complete. All files are located in the Photobooth_Pi_Pico_W_HTTP_client folder."
+echo "Setup complete. All files are located in the Photobooth_Pi_Pico_Buzzer folder."
